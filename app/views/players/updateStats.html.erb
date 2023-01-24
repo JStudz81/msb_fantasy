@@ -1,0 +1,44 @@
+<h1>Imported Stats</h1>
+
+
+<% @weekStats.each do |weekStat| %>
+    <ul>
+        <li><b>Player: <%=weekStat.player.name%></b></li>
+        <li><b>Team: <%= weekStat.team %></b></li>
+        <li><b>Total Points <%= weekStat.points %></b></li>
+        <li>Batters Faced: <%= weekStat.batters_faced %></li>
+        <li>Runs Allowed: <%= weekStat.runs_allowed %></li>
+        <li>Earned Runs: <%= weekStat.earned_runs %></li>
+        <li>Batters Walked: <%= weekStat.batters_walked %></li>
+        <li>Batters Hit: <%= weekStat.batters_hit %></li>
+        <li>Hits Allowed: <%= weekStat.hits_allowed %></li>
+        <li>Homeruns Allowed: <%= weekStat.hrs_allowed %></li>
+        <li>Pitches Thrown: <%= weekStat.pitches_thrown %></li>
+        <li>Stamina: <%= weekStat.stamina %></li>
+        <li>Was Pitcher: <%= weekStat.was_pitcher %></li>
+        <li>Star Pitches Thrown: <%= weekStat.star_pitches_thrown %></li>
+        <li>Big Plays: <%= weekStat.big_plays %></li>
+        <li>Outs Pitched: <%= weekStat.outs_pitched %></li>
+        <li>Pitches Per Position: <%= weekStat.pitches_per_position %></li>
+        <li>Batter Outs Per Postion: <%= weekStat.batter_outs_per_position %></li>
+        <li>Outs Per Position: <%= weekStat.outs_per_position %></li>
+        <li>Errors: <%= weekStat.fielding_errors %></li>
+        <li>Strikeouts Pitched: <%= weekStat.strikouts_pitched %></li>
+        <li>Batting Average: <%= weekStat.batting_avg %></li>
+        <li>At Bats: <%= weekStat.at_bats %></li>
+        <li>Hits: <%= weekStat.hits %></li>
+        <li>Singles: <%= weekStat.singles %></li>
+        <li>Doubles: <%= weekStat.doubles %></li>
+        <li>Triples: <%= weekStat.triples %></li>
+        <li>Homeruns: <%= weekStat.homeruns %></li>
+        <li>Successful Bunts: <%= weekStat.successful_bunts %></li>
+        <li>Sac Flys: <%= weekStat.sac_flys %></li>
+        <li>Strikeouts: <%= weekStat.strikeouts %></li>
+        <li>Walks (4 Balls): <%= weekStat.walks_balls %></li>
+        <li>Walks (Hit): <%= weekStat.walks_hit %></li>
+        <li>RBI: <%= weekStat.rbi %></li>
+        <li>Bases Stolen: <%= weekStat.bases_stolen %></li>
+        <li>Star Hits: <%= weekStat.star_hits %></li>
+        <li>Runs While on Base: <%= weekStat.runs_while_on_base %></li>
+    </ul>
+<% end %>

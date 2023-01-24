@@ -1,0 +1,39 @@
+class AddStatColumns < ActiveRecord::Migration[7.0]
+  def change
+    add_column :week_stats, :team, :string
+    add_column :week_stats, :batters_faced, :integer
+    add_column :week_stats, :runs_allowed, :integer
+    add_column :week_stats, :earned_runs, :integer
+    add_column :week_stats, :batters_walked, :integer
+    add_column :week_stats, :batters_hit, :integer
+    add_column :week_stats, :hits_allowed, :integer
+    add_column :week_stats, :hrs_allowed, :integer
+    add_column :week_stats, :pitches_thrown, :integer
+    add_column :week_stats, :stamina, :integer
+    add_column :week_stats, :was_pitcher, :boolean
+    add_column :week_stats, :star_pitches_thrown, :integer
+    add_column :week_stats, :big_plays, :integer
+    add_column :week_stats, :outs_pitched, :integer
+    add_column :week_stats, :pitches_per_position, :string
+    add_column :week_stats, :batter_outs_per_position, :string
+    add_column :week_stats, :outs_per_position, :string
+    add_column :week_stats, :fielding_errors, :string
+    add_column :week_stats, :strikouts_pitched, :integer
+    add_column :week_stats, :batting_avg, :float
+    add_column :week_stats, :at_bats, :integer
+    add_column :week_stats, :hits, :integer
+    add_column :week_stats, :singles, :integer
+    add_column :week_stats, :doubles, :integer
+    add_column :week_stats, :triples, :integer
+    add_column :week_stats, :homeruns, :integer
+    add_column :week_stats, :successful_bunts, :integer
+    add_column :week_stats, :sac_flys, :integer
+    add_column :week_stats, :strikeouts, :integer
+    add_column :week_stats, :walks_balls, :integer
+    add_column :week_stats, :walks_hit, :integer
+    add_column :week_stats, :rbi, :integer
+    add_column :week_stats, :bases_stolen, :integer
+    add_column :week_stats, :star_hits, :integer
+    add_column :week_stats, :runs_while_on_base, :integer
+  end
+end

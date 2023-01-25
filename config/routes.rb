@@ -8,6 +8,7 @@ Rails.application.routes.draw do
   get '/players/updateStats/:weekNum', to: 'players#updateStats'
 
   resources :players
+  get '/players/:id(/week/:weekNum)', to: 'players#weekStats'
 
   resources :fantasy_teams
 

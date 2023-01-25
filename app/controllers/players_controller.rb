@@ -7,7 +7,7 @@ class PlayersController < ApplicationController
   def show
     @player = Player.find(params[:id])
 
-    
+    @selected_week = @player.week_stats.order("week").last.week
 
   end
 
@@ -56,4 +56,11 @@ class PlayersController < ApplicationController
     @weekStats = WeekStat.where(week: week)
 
   end
+
+  def weekStats
+    @player = Player.find(params[:id])
+
+    @weekStat = @player.week_stats.find_by(week: params[:weekNum])
+  end
+
 end

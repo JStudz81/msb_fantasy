@@ -12,6 +12,8 @@ Rails.application.routes.draw do
 
   resources :fantasy_teams
 
+  get '/matchups/:weekNum', to: 'matchups#show'
+
   
   
 end

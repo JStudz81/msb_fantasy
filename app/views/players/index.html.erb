@@ -3,7 +3,7 @@
 <ul>
     <% @players.each do |player| %>
         <li>
-            <%= link_to player.name, player %> - <%= player.fantasy_team.team_name %>
+            <%= link_to player.name, player %>
         </li>
     <% end %>
 </ul>
@@ -14,6 +14,16 @@
     <% @teams.each do |team| %>
         <li>
             <%= link_to team.team_name, team %>
+        </li>
+    <% end %>
+</ul>
+
+<h1>Matchups</h1>
+
+<ul>
+<% @weeks.each do |week| %>
+        <li>
+            <a href='/matchups/<%=week%>'>Week <%=week%></a>
         </li>
     <% end %>
 </ul>

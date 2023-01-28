@@ -1,10 +1,10 @@
 <h1><%= @team.team_name %></h1>
 
 <ul>
-    <% @team.players.each do |player| %>
+    <% @team.week_stats.where(week: 1).each do |weekStat| %>
         <li>
-            <%= player.name %> - This weeks points: <%= if player.week_stats.exists? 
-            player.week_stats.order("week").last.points 
+            <%= weekStat.player.name %> - This weeks points: <%= if weekStat.player.week_stats.exists? 
+            weekStat.player.week_stats.order("week").last.points 
             end%>
         </li>
     <% end %>

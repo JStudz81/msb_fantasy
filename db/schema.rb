@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2023_01_24_160019) do
+ActiveRecord::Schema[7.0].define(version: 2023_01_28_182234) do
   create_table "fantasy_teams", force: :cascade do |t|
     t.string "team_name"
     t.string "owner"
@@ -18,13 +18,21 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_160019) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "matchups", force: :cascade do |t|
+    t.integer "team_1_id"
+    t.integer "team_2_id"
+    t.integer "week_num"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["team_1_id"], name: "index_matchups_on_team_1_id"
+    t.index ["team_2_id"], name: "index_matchups_on_team_2_id"
+  end
+
   create_table "players", force: :cascade do |t|
     t.string "name"
     t.string "team"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "fantasy_team_id"
-    t.index ["fantasy_team_id"], name: "index_players_on_fantasy_team_id"
   end
 
   create_table "week_stats", force: :cascade do |t|
@@ -33,6 +41,7 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_160019) do
     t.integer "player_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.integer "fantasy_team_id"
     t.string "team"
     t.integer "batters_faced"
     t.integer "runs_allowed"
@@ -68,9 +77,12 @@ ActiveRecord::Schema[7.0].define(version: 2023_01_24_160019) do
     t.integer "bases_stolen"
     t.integer "star_hits"
     t.integer "runs_while_on_base"
+    t.index ["fantasy_team_id"], name: "index_week_stats_on_fantasy_team_id"
     t.index ["player_id"], name: "index_week_stats_on_player_id"
   end
 
-  add_foreign_key "players", "fantasy_teams"
+  add_foreign_key "matchups", "team_1s"
+  add_foreign_key "matchups", "team_2s"
+  add_foreign_key "week_stats", "fantasy_teams"
   add_foreign_key "week_stats", "players"
 end

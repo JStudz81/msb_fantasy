@@ -1,9 +1,9 @@
-<h1>Players</h1>
+<h1>Matchups</h1>
 
 <ul>
-    <% @players.each do |player| %>
+<% @weeks.each do |week| %>
         <li>
-            <%= link_to player.name, player %>
+            <a href='/matchups/<%=week%>'>Week <%=week%></a>
         </li>
     <% end %>
 </ul>
@@ -18,12 +18,15 @@
     <% end %>
 </ul>
 
-<h1>Matchups</h1>
+<h1>Players</h1>
 
 <ul>
-<% @weeks.each do |week| %>
+    <% @players.each do |player| %>
         <li>
-            <a href='/matchups/<%=week%>'>Week <%=week%></a>
+            <%= link_to player.name, player %>
         </li>
     <% end %>
 </ul>
+
+
+

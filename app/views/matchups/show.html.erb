@@ -1,14 +1,16 @@
-<% @matchups.each do |match| %>
-    <h2><%= match.team_1.team_name %> vs. <%= match.team_2.team_name%></h2>
+<h1>Week <%= @week_num %> Matchups</h1>
 
-     <table>
+<% @matchups.each do |match| %>
+    <h2><%= match.team_1.owner %> vs. <%= match.team_2.owner%></h2>
+
+     <table style="text-align: center">
         <tr>
-            <th><%=match.team_1.team_name%></th>
-            <th>Pts</th>
-            <th>Pts</th>
-            <th><%=match.team_2.team_name%></th>
+            <th><%=match.team_1.owner%></th>
+            <th>Pts - <%= number_with_precision(match.team_1.week_stats.where(week: @week_num).reduce(0) { |sum, stat| sum + stat.points }, precision: 1) %></th>
+            <th><%= number_with_precision(match.team_2.week_stats.where(week: @week_num).reduce(0) { |sum, stat| sum + stat.points }, precision: 1) %> - Pts</th>
+            <th><%=match.team_2.owner%></th>
         </tr>
-        <% match.team_1.week_stats.where(week: 1).each_with_index do |weekStat, i| %>
+        <% match.team_1.week_stats.where(week: @week_num).each_with_index do |weekStat, i| %>
         <tr>
             <td><%=match.team_1.week_stats[i].player.name%></td>
             <td><%=match.team_1.week_stats[i].points%></td>

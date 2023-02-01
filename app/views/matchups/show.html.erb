@@ -12,10 +12,10 @@
         </tr>
         <% match.team_1.week_stats.where(week: @week_num).each_with_index do |weekStat, i| %>
         <tr>
-            <td><%=match.team_1.week_stats[i].player.name%></td>
+            <td><a href="/players/<%= match.team_1.week_stats[i].player.id%>/week/<%= @week_num%>"><%=match.team_1.week_stats[i].player.name%></a></td>
             <td><%=match.team_1.week_stats[i].points%></td>
             <td><%=match.team_2.week_stats[i].points%></td>
-            <td><%=match.team_2.week_stats[i].player.name%></td>
+            <td><a href="/players/<%= match.team_2.week_stats[i].player.id%>/week/<%= @week_num%>"><%=match.team_2.week_stats[i].player.name%></a></td>
         </tr>
         <% end %>
     </table> 

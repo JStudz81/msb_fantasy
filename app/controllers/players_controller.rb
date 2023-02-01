@@ -14,12 +14,18 @@ class PlayersController < ApplicationController
   end
 
   def updateStats
-    doc = SimpleXlsxReader.open('Fantasy MSB Season 1.xlsx')
+    
+    #file = Tempfile.create { |f| f << params[:upload] }
 
-    week = params[:weekNum]
+    #doc = SimpleXlsxReader.open('Fantasy MSB Season 1.xlsx')
+    doc = SimpleXlsxReader.open(params[:upload][:datafile].path)
+
+    WeekStat.delete_all
 
     for sheet in doc.sheets
-      if sheet.name == "Week " + week
+      if sheet.name.include? "Week"
+        week = sheet.name[5..-1]
+
         rows = sheet.rows
         @headers = rows.first
         fantasy_team = ''
@@ -44,22 +50,23 @@ class PlayersController < ApplicationController
             weekStat.batter_outs_per_position = row[18]
             weekStat.outs_per_position = row[19]
             weekStat.fielding_errors = row[20]
-            weekStat.batting_avg = row[21]
-            weekStat.at_bats = row[22]
-            weekStat.hits = row[23]
-            weekStat.singles = row[24]
-            weekStat.doubles = row[25]
-            weekStat.triples = row[26]
-            weekStat.homeruns = row[27]
-            weekStat.successful_bunts = row[28]
-            weekStat.sac_flys = row[29]
-            weekStat.strikeouts = row[30]
-            weekStat.walks_balls = row[31]
-            weekStat.walks_hit = row[32]
-            weekStat.rbi = row[33]
-            weekStat.bases_stolen = row[34]
-            weekStat.star_hits = row[35]
-            weekStat.runs_while_on_base = row[36]
+            weekStat.strikouts_pitched = row[21]
+            weekStat.batting_avg = row[22]
+            weekStat.at_bats = row[23]
+            weekStat.hits = row[24]
+            weekStat.singles = row[25]
+            weekStat.doubles = row[26]
+            weekStat.triples = row[27]
+            weekStat.homeruns = row[28]
+            weekStat.successful_bunts = row[29]
+            weekStat.sac_flys = row[30]
+            weekStat.strikeouts = row[31]
+            weekStat.walks_balls = row[32]
+            weekStat.walks_hit = row[33]
+            weekStat.rbi = row[34]
+            weekStat.bases_stolen = row[35]
+            weekStat.star_hits = row[36]
+            weekStat.runs_while_on_base = row[37]
             weekStat.save
           end
         end

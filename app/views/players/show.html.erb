@@ -1,10 +1,25 @@
 <h1><%= @player.name %></h1>
 <h2>Plays For: <%= @player.team %></h2>
 
-<h3>Current Fantasy Team: <%= @player.week_stats.order("week").last.fantasy_team.team_name %></h3>
+<h3>Current Fantasy Team: <%= @player.week_stats.order("week").last.fantasy_team.owner %></h3>
 
 <p>View Weekly Stats</p>
 <% @player.week_stats.order("week").each do |select_week|%>
     <a href="/players/<%= @player.id%>/week/<%= select_week.week%>">Week <%= select_week.week %></a>
 <% end %>
+
+<table style="text-align: center">
+    <tr>
+        <th>Week</th>
+        <th>Points</th>
+        <th>K's Pitched</th>
+    </tr>
+    <% @player.week_stats.order("week").each do |weekStat| %>
+        <tr>
+            <td><%= weekStat.week %></td>
+            <td><%= weekStat.points %></td>
+            <td><%= weekStat.strikouts_pitched %></td>
+        </tr>
+    <% end %>
+</table>
 

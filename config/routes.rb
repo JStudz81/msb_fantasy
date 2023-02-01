@@ -5,7 +5,7 @@ Rails.application.routes.draw do
   # root "articles#index"
   root "players#index"
 
-  get '/players/updateStats/:weekNum', to: 'players#updateStats'
+  post '/players/updateStats', to: 'players#updateStats'
 
   resources :players
   get '/players/:id(/week/:weekNum)', to: 'players#weekStats'

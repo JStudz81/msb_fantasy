@@ -12,13 +12,77 @@
     <tr>
         <th>Week</th>
         <th>Points</th>
-        <th>K's Pitched</th>
+        <th>Team</th>
+        <th>Batters Faced</th>
+        <th>Runs Allowed</th>
+        <th>Earned Runs</th>
+        <th>Batters Walked</th>
+        <th>Batters Hit</th>
+        <th>Hits Allowed</th>
+        <th>Homeruns Allowed</th>
+        <th>Pitches</th>
+        <th>Stamina</th>
+        <th>Pitched?</th>
+        <th>Star Pitches</th>
+        <th>Big Plays</th>
+        <th>Outs Pitched</th>
+        <th>Errors</th>
+        <th>Strikeouts Pitched</th>
+        <th>Batting Average</th>
+        <th>At Bats</th>
+        <th>Hits</th>
+        <th>Singles</th>
+        <th>Doubles</th>
+        <th>Triples</th>
+        <th>Homeruns</th>
+        <th>Successful Bunts</th>
+        <th>Sac Flys</th>
+        <th>Strikeouts</th>
+        <th>Walks (4 Balls)</th>
+        <th>Walks (HBP)</th>
+        <th>RBI</th>
+        <th>Bases Stolen</th>
+        <th>Star Hits</th>
+        <th>Runs While on Base</th>
     </tr>
     <% @player.week_stats.order("week").each do |weekStat| %>
         <tr>
             <td><%= weekStat.week %></td>
             <td><%= weekStat.points %></td>
+            <td><%= weekStat.batters_faced %></td>
+            <td><%= weekStat.runs_allowed %></td>
+            <td><%= weekStat.earned_runs %></td>
+            <td><%= weekStat.batters_walked %></td>
+            <td><%= weekStat.batters_hit %></td>
+            <td><%= weekStat.hits_allowed %></td>
+            <td><%= weekStat.hrs_allowed %></td>
+            <td><%= weekStat.pitches_thrown %></td>
+            <td><%= weekStat.stamina %></td>
+            <td><%= weekStat.was_pitcher %></td>
+            <td><%= weekStat.star_pitches_thrown %></td>
+            <td><%= weekStat.big_plays %></td>
+            <td><%= weekStat.outs_pitched %></td>
+            <td><%= weekStat.pitches_per_position %></td>
+            <td><%= weekStat.batter_outs_per_position %></td>
+            <td><%= weekStat.outs_per_position %></td>
+            <td><%= weekStat.fielding_errors %></td>
             <td><%= weekStat.strikouts_pitched %></td>
+            <td><%= weekStat.batting_avg %></td>
+            <td><%= weekStat.at_bats %></td>
+            <td><%= weekStat.hits %></td>
+            <td><%= weekStat.singles %></td>
+            <td><%= weekStat.doubles %></td>
+            <td><%= weekStat.triples %></td>
+            <td><%= weekStat.homeruns %></td>
+            <td><%= weekStat.successful_bunts %></td>
+            <td><%= weekStat.sac_flys %></td>
+            <td><%= weekStat.strikeouts %></td>
+            <td><%= weekStat.walks_balls %></td>
+            <td><%= weekStat.walks_hit %></td>
+            <td><%= weekStat.rbi %></td>
+            <td><%= weekStat.bases_stolen %></td>
+            <td><%= weekStat.star_hits %></td>
+            <td><%= weekStat.runs_while_on_base %></td>
         </tr>
     <% end %>
 </table>

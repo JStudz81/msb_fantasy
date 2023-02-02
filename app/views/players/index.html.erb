@@ -13,7 +13,7 @@
 <ul>
     <% @teams.each do |team| %>
         <li>
-            <%= link_to team.team_name, team %>
+            <%= link_to team.owner, team %>
         </li>
     <% end %>
 </ul>
